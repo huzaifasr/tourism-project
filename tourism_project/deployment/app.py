@@ -7,9 +7,9 @@ import joblib
 st.set_page_config(page_title='Tourism Purchase Predictor', layout='wide')
 
 # Paths
-MODEL_PATH = 'tourism_project/model_building/artifacts/xgb_best_model.joblib'
-PREPARED_X_PATH = 'tourism_project/data/prepared/Xtrain.csv'
-RAW_CSV_CANDIDATES = ['tourism_project/data/tourism.csv', 'tourism.csv']
+MODEL_PATH = 'tourism_project/tourism_model_v1.joblib'
+PREPARED_X_PATH = 'tourism_project/Xtrain.csv'
+RAW_CSV_CANDIDATES = ['tourism_project/tourism.csv', 'tourism.csv']
 
 # Load model if available
 model = None
