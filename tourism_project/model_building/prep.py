@@ -18,14 +18,19 @@ df = pd.read_csv(DATASET_PATH)
 print("Dataset loaded successfully.")
 
 # Drop columns not required
-first_col = df.columns[0]
-df = df.drop(columns=[first_col])
-print(f"Dropped unnamed index column: {first_col}")
 df = df.drop(columns=["CustomerID"])
 print("Dropped CustomerID column")
+first_col = df.columns[0]
+if first_col == "" or str(first_col).lower().startswith("unnamed"):
+    df = df.drop(columns=[first_col])
+    print(f"Dropped unnamed index column: {first_col}")
 
+# Ensure target exists
+TARGET = "ProdTaken"
+if TARGET not in df.columns:
+    raise KeyError(f"Expected target column '{TARGET}' not found in dataset columns: {df.columns.tolist()}")
 
-# Fix Gender typos/variants seen in CSV (e.g. 'Fe Male')
+# Fix Gender typos/variants seen in CSV (e.g. 'Fe Male', 'Fe Male ', 'FeMale')
 if "Gender" in df.columns:
     df["Gender"] = df["Gender"].astype(str).str.strip().str.lower()
     df.loc[df["Gender"].str.contains(r"fe|fem", na=False), "Gender"] = "Female"
