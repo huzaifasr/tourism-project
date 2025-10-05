@@ -7,9 +7,9 @@ import joblib
 st.set_page_config(page_title='Tourism Purchase Predictor', layout='wide')
 
 # Paths
-MODEL_PATH = 'tourism-project/model_building/artifacts/xgb_best_model.joblib'
-PREPARED_X_PATH = 'tourism-project/data/prepared/Xtrain.csv'
-RAW_CSV_CANDIDATES = ['tourism-project/data/tourism.csv', 'tourism.csv']
+MODEL_PATH = 'tourism_project/model_building/artifacts/xgb_best_model.joblib'
+PREPARED_X_PATH = 'tourism_project/data/prepared/Xtrain.csv'
+RAW_CSV_CANDIDATES = ['tourism_project/data/tourism.csv', 'tourism.csv']
 
 # Load model if available
 model = None
@@ -30,7 +30,7 @@ for p in RAW_CSV_CANDIDATES:
         break
 
 if raw_df is None:
-    st.error('Could not find tourism.csv in repo. Place it at repo root or tourism-project/data.')
+    st.error('Could not find tourism.csv in repo. Place it at repo root or tourism_project/data.')
     st.stop()
 
 # Quick cleanup matching prep.py behavior
