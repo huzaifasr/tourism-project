@@ -18,8 +18,8 @@ df = pd.read_csv(DATASET_PATH)
 print("Dataset loaded successfully.")
 
 # Drop columns not required
-df = df.drop(columns=["CustomerID"]) 
-print("Dropped CustomerID column")  
+df = df.drop(columns=["CustomerID"])
+print("Dropped CustomerID column")
 first_col = df.columns[0]
 if first_col == "" or str(first_col).lower().startswith("unnamed"):
     df = df.drop(columns=[first_col])
@@ -91,7 +91,7 @@ X = df.drop(columns=[TARGET])
 y = df[TARGET]
 
 # Ensure output directory exists
-out_dir = "tourism-project/data/prepared"
+out_dir = "tourism_project/data/prepared"
 os.makedirs(out_dir, exist_ok=True)
 
 # Train-test split
