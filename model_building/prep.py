@@ -91,7 +91,7 @@ X = df.drop(columns=[TARGET])
 y = df[TARGET]
 
 # Ensure output directory exists
-out_dir = "tourism_project/data/prepared"
+out_dir = "tourism-project/data/prepared"
 os.makedirs(out_dir, exist_ok=True)
 
 # Train-test split
