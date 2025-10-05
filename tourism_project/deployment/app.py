@@ -5,7 +5,7 @@ import joblib
 from huggingface_hub import hf_hub_download
 
 
-st.set_page_config(page_title='Tourism — Simple UI', layout='centered')
+st.set_page_config(page_title='Tourism — Predictor UI', layout='centered')
 
 
 # Known candidate paths for model and data (search a few likely locations)
@@ -24,7 +24,7 @@ def find_first_existing(paths):
 # Prefer loading model from Hugging Face Hub; fall back to local candidates
 model = None
 try:
-    model_path = hf_hub_download(repo_id="huzaifa-sr/tourism_model", filename="tourism_model_v1.joblib")
+    model_path = hf_hub_download(repo_id="huzaifa-sr/tourism-project", filename="tourism_model_v1.joblib")
     model = joblib.load(model_path)
     st.info(f'Loaded model from Hugging Face: {model_path}')
 except Exception as e:
