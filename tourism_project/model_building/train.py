@@ -15,6 +15,7 @@ import os
 from huggingface_hub import login, HfApi, create_repo
 from huggingface_hub.utils import RepositoryNotFoundError, HfHubHTTPError
 import mlflow
+import numpy as np
 
 mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("mlops-tourism-project")
